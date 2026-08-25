@@ -4,26 +4,26 @@ description: >
   当用户的任务涉及 NutUI React Taro（@nutui/nutui-react-taro）时使用 —— 为小程序 / 跨端（Taro）应用编写 NutUI React Taro 组件、调试 NutUI Taro 问题，或查询 NutUI Taro 组件的 API/属性/文档/示例/设计变量（Design Token）。 触发场景：与 NutUI Taro 相关的代码、从 '@nutui/nutui-react-taro' 导入，或明确的 NutUI Taro 相关提问。NutUI React Taro 是京东面向 Taro（小程序 / 多端）的移动端组件库，一套代码同时支持 H5 与小程序。
 allowed-tools:
   - Bash(nutui-react-taro *)
-  - Bash(npx -y @nutui/nutui-react-taro-cli *)
+  - Bash(npx -y @dongweb/nutui-react-taro-cli *)
   - Bash(which nutui-react-taro)
 ---
 
 # NutUI React Taro CLI
 
-你可以使用 `@nutui/nutui-react-taro-cli` —— 一个内置了 NutUI React Taro 元数据（组件属性、完整文档、可运行的 Taro 示例和 Design Token）的本地 CLI 工具。在编写代码前用它查询组件知识。所有数据均为离线数据并随 CLI 一起打包 —— 无需联网，也无需 API Key。
+你可以使用 `@dongweb/nutui-react-taro-cli` —— 一个内置了 NutUI React Taro 元数据（组件属性、完整文档、可运行的 Taro 示例和 Design Token）的本地 CLI 工具。在编写代码前用它查询组件知识。所有数据均为离线数据并随 CLI 一起打包 —— 无需联网，也无需 API Key。
 
 ## 准备工作
 
 首次使用前，先检查该 CLI 是否可用。若不可用，可通过 `npx` 调用（无需全局安装）：
 
 ```bash
-which nutui-react-taro || echo "use: npx -y @nutui/nutui-react-taro-cli <command>"
+which nutui-react-taro || echo "use: npx -y @dongweb/nutui-react-taro-cli <command>"
 ```
 
 两种方式均可 —— 用哪种取决于哪种可用：
 
 - 全局安装：`nutui-react-taro info Button`
-- 通过 npx（免安装）：`npx -y @nutui/nutui-react-taro-cli info Button`
+- 通过 npx（免安装）：`npx -y @dongweb/nutui-react-taro-cli info Button`
 
 下文示例为简洁起见统一使用 `nutui-react-taro` 形式。
 
@@ -94,7 +94,7 @@ nutui-react-taro token Button --format json
   "mcpServers": {
     "nutui-react-taro": {
       "command": "npx",
-      "args": ["-y", "@nutui/nutui-react-taro-cli", "mcp"]
+      "args": ["-y", "@dongweb/nutui-react-taro-cli", "mcp"]
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@nutui/nutui-react-taro-cli",
+  "name": "@dongweb/nutui-react-taro-cli",
   "version": "4.0.0",
   "type": "module",
   "description": "NutUI React Taro 面向 AI Coding 的离线知识查询 CLI：list / info / doc / demo / token。",

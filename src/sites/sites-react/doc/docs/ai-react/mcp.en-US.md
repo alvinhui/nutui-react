@@ -40,7 +40,7 @@ Shared config for **Claude Code** (`.mcp.json` or `claude mcp add`), **Cursor** 
   "mcpServers": {
     "nutui-react": {
       "command": "npx",
-      "args": ["-y", "@nutui/nutui-react-cli", "mcp"]
+      "args": ["-y", "@dongweb/nutui-react-cli", "mcp"]
     }
   }
 }
@@ -51,7 +51,7 @@ Shared config for **Claude Code** (`.mcp.json` or `claude mcp add`), **Cursor** 
 ```toml
 [mcp_servers.nutui-react]
 command = "npx"
-args = ["-y", "@nutui/nutui-react-cli", "mcp"]
+args = ["-y", "@dongweb/nutui-react-cli", "mcp"]
 ```
 
 `npx -y` launches it without a global install; alternatively, after a global install, change `command` to `nutui-react` and `args` to `["mcp"]`.

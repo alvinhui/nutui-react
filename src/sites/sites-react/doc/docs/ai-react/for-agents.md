@@ -10,18 +10,18 @@
 在编写任何 NutUI-React（@nutui/nutui-react）代码之前，请先阅读 https://nutui.jd.com/h5/react/4x/llms-full-cn.txt 理解组件的真实 API、用法与样式结构，不要凭记忆猜测 Prop 或枚举值。使用任何组件前先查文档，再写代码。
 
 如果你的环境支持 skills，请运行：
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react
 ```
 
 ## Agent 获得什么
 
 ### CLI — 离线知识查询
 
-[@nutui/nutui-react-cli](https://www.npmjs.com/package/@nutui/nutui-react-cli) 把组件的 Props、文档、示例与 Design Token 打包随包分发，安装后本地毫秒级查询，无需网络、无需 API Key。
+[@dongweb/nutui-react-cli](https://www.npmjs.com/package/@dongweb/nutui-react-cli) 把组件的 Props、文档、示例与 Design Token 打包随包分发，安装后本地毫秒级查询，无需网络、无需 API Key。
 
 ```bash
-npx @nutui/nutui-react-cli info Button
+npx @dongweb/nutui-react-cli info Button
 ```
 
 完整参考：[CLI](/#/zh-CN/ai/cli)
@@ -35,7 +35,7 @@ CLI 同时可作为本地 MCP 服务运行，把同一份知识注册成 IDE 原
   "mcpServers": {
     "nutui-react": {
       "command": "npx",
-      "args": ["-y", "@nutui/nutui-react-cli", "mcp"]
+      "args": ["-y", "@dongweb/nutui-react-cli", "mcp"]
     }
   }
 }
@@ -48,8 +48,8 @@ CLI 同时可作为本地 MCP 服务运行，把同一份知识注册成 IDE 原
 CLI 内置一份遵循 Agent Skills 规范的 Skill 文件，随包分发。CLI/MCP 提供的是「能力」，Skill 则约束 Agent「什么时候、按什么顺序」用这些能力——例如「写组件前先查 Props 再拿示例」「定制样式用 `var(--nutui-*)` token 而非硬编码颜色」。
 
 ```bash
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react
 ```
 
 ### LLMs.txt — 结构化文档

@@ -4,7 +4,7 @@
 export interface CliConfig {
   // yargs scriptName，也用于报错文案里的命令名。'nutui-react' | 'nutui-react-taro'
   binName: string
-  // npm 包名，用于 MCP TTY 提示与文档链接。'@nutui/nutui-react-cli' | '@nutui/nutui-react-taro-cli'
+  // npm 包名，用于 MCP TTY 提示与文档链接。'@dongweb/nutui-react-cli' | '@dongweb/nutui-react-taro-cli'
   cliPkgName: string
   platform: 'h5' | 'taro'
   // list 命令头部标签。'NutUI React（H5）' | 'NutUI React（Taro 多端）'

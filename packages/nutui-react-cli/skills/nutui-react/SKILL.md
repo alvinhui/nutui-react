@@ -4,26 +4,26 @@ description: >
   当用户的任务涉及 NutUI React（@nutui/nutui-react）时使用 —— 编写 NutUI React 组件、调试 NutUI 问题，或查询 NutUI 组件的 API/属性/文档/示例/设计变量（Design Token）。触发场景：与 NutUI 相关的代码、从 '@nutui/nutui-react' 导入，或明确的 NutUI 相关提问。NutUI React 是京东的轻量级移动端（H5）组件库。
 allowed-tools:
   - Bash(nutui-react *)
-  - Bash(npx -y @nutui/nutui-react-cli *)
+  - Bash(npx -y @dongweb/nutui-react-cli *)
   - Bash(which nutui-react)
 ---
 
 # NutUI React CLI
 
-你可以使用 `@nutui/nutui-react-cli` —— 一个内置了 NutUI React 元数据（组件属性、完整文档、可运行示例和 Design Token）的本地 CLI 工具。在编写代码前用它查询组件知识。所有数据均为离线数据并随 CLI 一起打包 —— 无需联网，也无需 API Key。
+你可以使用 `@dongweb/nutui-react-cli` —— 一个内置了 NutUI React 元数据（组件属性、完整文档、可运行示例和 Design Token）的本地 CLI 工具。在编写代码前用它查询组件知识。所有数据均为离线数据并随 CLI 一起打包 —— 无需联网，也无需 API Key。
 
 ## 准备工作
 
 首次使用前，先检查该 CLI 是否可用。若不可用，可通过 `npx` 调用（无需全局安装）：
 
 ```bash
-which nutui-react || echo "use: npx -y @nutui/nutui-react-cli <command>"
+which nutui-react || echo "use: npx -y @dongweb/nutui-react-cli <command>"
 ```
 
 两种方式均可 —— 用哪种取决于哪种可用：
 
 - 全局安装：`nutui-react info Button`
-- 通过 npx（免安装）：`npx -y @nutui/nutui-react-cli info Button`
+- 通过 npx（免安装）：`npx -y @dongweb/nutui-react-cli info Button`
 
 下文示例为简洁起见统一使用 `nutui-react` 形式。
 
@@ -95,7 +95,7 @@ nutui-react token Button --format json
   "mcpServers": {
     "nutui-react": {
       "command": "npx",
-      "args": ["-y", "@nutui/nutui-react-cli", "mcp"]
+      "args": ["-y", "@dongweb/nutui-react-cli", "mcp"]
     }
   }
 }

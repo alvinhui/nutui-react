@@ -1,4 +1,4 @@
-# @nutui/nutui-react-cli
+# @dongweb/nutui-react-cli
 
 面向 AI Coding 的 **NutUI React 离线知识查询 CLI**。把组件的 Props、文档、示例、Design Token 打包随包分发，让 AI 编程助手（Claude Code / Cursor / Copilot 等）从「猜 API」变成「查 API」，从根源消除 API 幻觉。
 
@@ -13,14 +13,14 @@
 免安装（推荐）：
 
 ```bash
-npx -y @nutui/nutui-react-cli list
-npx -y @nutui/nutui-react-cli info Button
+npx -y @dongweb/nutui-react-cli list
+npx -y @dongweb/nutui-react-cli info Button
 ```
 
 或全局安装后用 `nutui-react` 命令：
 
 ```bash
-npm i -g @nutui/nutui-react-cli
+npm i -g @dongweb/nutui-react-cli
 nutui-react info Button --format json
 ```
 
@@ -76,7 +76,7 @@ CLI 是「Agent 主动敲命令」，MCP 则把同一份能力注册成 IDE 原�
   "mcpServers": {
     "nutui-react": {
       "command": "npx",
-      "args": ["-y", "@nutui/nutui-react-cli", "mcp"]
+      "args": ["-y", "@dongweb/nutui-react-cli", "mcp"]
     }
   }
 }
@@ -87,7 +87,7 @@ CLI 是「Agent 主动敲命令」，MCP 则把同一份能力注册成 IDE 原�
 ```toml
 [mcp_servers.nutui-react]
 command = "npx"
-args = ["-y", "@nutui/nutui-react-cli", "mcp"]
+args = ["-y", "@dongweb/nutui-react-cli", "mcp"]
 ```
 
 > `npx -y` 免全局安装即可拉起；也可全局安装后把 `command` 换成 `nutui-react`、`args` 换成 `["mcp"]`。
@@ -99,19 +99,19 @@ CLI 内置一份 [Skill 文件](./skills/nutui-react/SKILL.md)（遵循 Anthropi
 安装（skill 已随包 bundle，装好 CLI 后从本地路径装进当前项目）：
 
 ```bash
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react
 ```
 
 兼容 Claude Code / Cursor / VS Code / Codex 等所有支持 [skills](https://github.com/vercel-labs/skills) 协议的 Agent。安装后，Agent 在遇到 NutUI React 相关任务时会自动遵循「先查后写」的流程。
 
 ### 迁移 Skill：H5 → Taro
 
-本包额外内置一份 [迁移 Skill](./skills/nutui-react-to-taro/SKILL.md)，用于把使用 `@nutui/nutui-react`（H5）的项目迁移到 `@nutui/nutui-react-taro`（Taro 跨端 / 小程序）。它编排「包名/原生标签/样式单位/事件类型」等规则化改写，并同时调用本包与 `@nutui/nutui-react-taro-cli` 的 `info` 交叉核对两端 Props 差异（少数组件如 Uploader / Image 两端属性不同），对 Web API、canvas 等无法机械转换的场景给出重写指引。
+本包额外内置一份 [迁移 Skill](./skills/nutui-react-to-taro/SKILL.md)，用于把使用 `@nutui/nutui-react`（H5）的项目迁移到 `@nutui/nutui-react-taro`（Taro 跨端 / 小程序）。它编排「包名/原生标签/样式单位/事件类型」等规则化改写，并同时调用本包与 `@dongweb/nutui-react-taro-cli` 的 `info` 交叉核对两端 Props 差异（少数组件如 Uploader / Image 两端属性不同），对 Web API、canvas 等无法机械转换的场景给出重写指引。
 
 ```bash
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react-to-taro
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react-to-taro
 ```
 
 ## 本地开发

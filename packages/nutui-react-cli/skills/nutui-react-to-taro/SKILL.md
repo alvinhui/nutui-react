@@ -5,8 +5,8 @@ description: >
 allowed-tools:
   - Bash(nutui-react *)
   - Bash(nutui-react-taro *)
-  - Bash(npx -y @nutui/nutui-react-cli *)
-  - Bash(npx -y @nutui/nutui-react-taro-cli *)
+  - Bash(npx -y @dongweb/nutui-react-cli *)
+  - Bash(npx -y @dongweb/nutui-react-taro-cli *)
   - Bash(which nutui-react)
   - Bash(which nutui-react-taro)
 ---
@@ -17,14 +17,14 @@ allowed-tools:
 
 有两个 CLI 支撑本工作，均离线、元数据随包分发：
 
-- `@nutui/nutui-react-cli` —— **源端**（H5）真值：`nutui-react info <C>`
-- `@nutui/nutui-react-taro-cli` —— **目标端**（Taro）真值：`nutui-react-taro info <C>`
+- `@dongweb/nutui-react-cli` —— **源端**（H5）真值：`nutui-react info <C>`
+- `@dongweb/nutui-react-taro-cli` —— **目标端**（Taro）真值：`nutui-react-taro info <C>`
 
 若某个 CLI 不在 PATH 上，用 npx 调用（无需安装）：
 
 ```bash
-which nutui-react      || echo "use: npx -y @nutui/nutui-react-cli info <C> --format json"
-which nutui-react-taro || echo "use: npx -y @nutui/nutui-react-taro-cli info <C> --format json"
+which nutui-react      || echo "use: npx -y @dongweb/nutui-react-cli info <C> --format json"
+which nutui-react-taro || echo "use: npx -y @dongweb/nutui-react-taro-cli info <C> --format json"
 ```
 
 **最重要的习惯：每碰一个组件，改写前先用两个 CLI 对比它的 props。** props 通常一致，但一旦不同（Uploader、Image、InputNumber 等），盲目照搬会产出在小程序上悄悄失效的代码。始终传 `--format json` 并解析它。

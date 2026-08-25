@@ -13,8 +13,8 @@ description: >
 allowed-tools:
   - Bash(nutui-react *)
   - Bash(nutui-react-taro *)
-  - Bash(npx -y @nutui/nutui-react-cli *)
-  - Bash(npx -y @nutui/nutui-react-taro-cli *)
+  - Bash(npx -y @dongweb/nutui-react-cli *)
+  - Bash(npx -y @dongweb/nutui-react-taro-cli *)
   - Bash(which nutui-react)
   - Bash(which nutui-react-taro)
 ---
@@ -30,14 +30,14 @@ done with blind find-and-replace.
 
 Two CLIs back this work; both are offline, with metadata shipped alongside the packages:
 
-- `@nutui/nutui-react-cli` — **source-end** (H5) source of truth: `nutui-react info <C>`
-- `@nutui/nutui-react-taro-cli` — **target-end** (Taro) source of truth: `nutui-react-taro info <C>`
+- `@dongweb/nutui-react-cli` — **source-end** (H5) source of truth: `nutui-react info <C>`
+- `@dongweb/nutui-react-taro-cli` — **target-end** (Taro) source of truth: `nutui-react-taro info <C>`
 
 If a CLI is not on PATH, invoke it via npx (no install needed):
 
 ```bash
-which nutui-react      || echo "use: npx -y @nutui/nutui-react-cli info <C> --format json"
-which nutui-react-taro || echo "use: npx -y @nutui/nutui-react-taro-cli info <C> --format json"
+which nutui-react      || echo "use: npx -y @dongweb/nutui-react-cli info <C> --format json"
+which nutui-react-taro || echo "use: npx -y @dongweb/nutui-react-taro-cli info <C> --format json"
 ```
 
 **The most important habit: for every component you touch, diff its props with

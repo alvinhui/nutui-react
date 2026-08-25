@@ -1,4 +1,4 @@
-// @nutui/nutui-react-cli（H5）的 data 快照生成：委托 core 的 prepareData，注入 H5 端参数。
+// @dongweb/nutui-react-cli（H5）的 data 快照生成：委托 core 的 prepareData，注入 H5 端参数。
 // DO NOT manual edit the output (data/). Run: pnpm run prepare-data
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'

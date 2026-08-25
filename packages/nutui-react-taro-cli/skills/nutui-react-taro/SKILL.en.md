@@ -10,26 +10,26 @@ description: >
   multi-platform), sharing one codebase to target H5 and mini-programs.
 allowed-tools:
   - Bash(nutui-react-taro *)
-  - Bash(npx -y @nutui/nutui-react-taro-cli *)
+  - Bash(npx -y @dongweb/nutui-react-taro-cli *)
   - Bash(which nutui-react-taro)
 ---
 
 # NutUI React Taro CLI
 
-You have access to `@nutui/nutui-react-taro-cli` — a local CLI tool with bundled NutUI React Taro metadata (component props, full docs, runnable Taro demos, and Design Tokens). Use it to query component knowledge before writing code. All data is offline and packaged with the CLI — no network and no API key needed.
+You have access to `@dongweb/nutui-react-taro-cli` — a local CLI tool with bundled NutUI React Taro metadata (component props, full docs, runnable Taro demos, and Design Tokens). Use it to query component knowledge before writing code. All data is offline and packaged with the CLI — no network and no API key needed.
 
 ## Setup
 
 Before first use, check if the CLI is available. If not, invoke it via `npx` (no global install required):
 
 ```bash
-which nutui-react-taro || echo "use: npx -y @nutui/nutui-react-taro-cli <command>"
+which nutui-react-taro || echo "use: npx -y @dongweb/nutui-react-taro-cli <command>"
 ```
 
 Both forms work — use whichever is available:
 
 - Installed globally: `nutui-react-taro info Button`
-- Via npx (no install): `npx -y @nutui/nutui-react-taro-cli info Button`
+- Via npx (no install): `npx -y @dongweb/nutui-react-taro-cli info Button`
 
 Examples below use the `nutui-react-taro` form for brevity.
 
@@ -100,7 +100,7 @@ If working in an IDE that supports MCP (Claude Code, Cursor, VS Code, Codex, etc
   "mcpServers": {
     "nutui-react-taro": {
       "command": "npx",
-      "args": ["-y", "@nutui/nutui-react-taro-cli", "mcp"]
+      "args": ["-y", "@dongweb/nutui-react-taro-cli", "mcp"]
     }
   }
 }

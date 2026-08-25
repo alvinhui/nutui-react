@@ -1,10 +1,10 @@
 # CLI
 
-This guide explains how to use `@nutui/nutui-react-cli` to query NutUI-React component knowledge from the command line.
+This guide explains how to use `@dongweb/nutui-react-cli` to query NutUI-React component knowledge from the command line.
 
 ## What is the NutUI-React CLI?
 
-[@nutui/nutui-react-cli](https://www.npmjs.com/package/@nutui/nutui-react-cli) is an **offline knowledge-query CLI for NutUI-React**, built for AI coding. It bundles component props, docs, demos, and Design Tokens with the package, so AI coding assistants (Claude Code / Cursor / Copilot, etc.) can _look up_ APIs instead of _guessing_ them — eliminating API hallucinations at the source.
+[@dongweb/nutui-react-cli](https://www.npmjs.com/package/@dongweb/nutui-react-cli) is an **offline knowledge-query CLI for NutUI-React**, built for AI coding. It bundles component props, docs, demos, and Design Tokens with the package, so AI coding assistants (Claude Code / Cursor / Copilot, etc.) can _look up_ APIs instead of _guessing_ them — eliminating API hallucinations at the source.
 
 ## Highlights
 
@@ -16,14 +16,14 @@ This guide explains how to use `@nutui/nutui-react-cli` to query NutUI-React com
 ## Install
 
 ```bash
-npm install -g @nutui/nutui-react-cli
+npm install -g @dongweb/nutui-react-cli
 ```
 
 Requires Node.js `>=18.12.0`. You can also skip the install and invoke it via `npx` (recommended, always uses the latest version):
 
 ```bash
-npx @nutui/nutui-react-cli list
-npx @nutui/nutui-react-cli info Button
+npx @dongweb/nutui-react-cli list
+npx @dongweb/nutui-react-cli info Button
 ```
 
 After a global install, use the `nutui-react` command:
@@ -76,8 +76,8 @@ The CLI ships with a Skill file following the [Agent Skills](https://github.com/
 Install into the current project (the skill is bundled with the package; install it from the local path after installing the CLI):
 
 ```bash
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react
 ```
 
 Once installed, the agent automatically follows the "look up first, then write" workflow when it encounters NutUI-React tasks. Compatible with Claude Code / Cursor / VS Code / Codex and any agent that supports the skills protocol.

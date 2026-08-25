@@ -1,8 +1,8 @@
-# @nutui/nutui-react-taro-cli
+# @dongweb/nutui-react-taro-cli
 
 面向 AI Coding 的 **NutUI React Taro 离线知识查询 CLI**。把组件的 Props、文档、Taro 示例、Design Token 打包随包分发，让 AI 编程助手（Claude Code / Cursor / Copilot 等）从「猜 API」变成「查 API」，从根源消除 API 幻觉。
 
-服务于 `@nutui/nutui-react-taro`（Taro 跨端 / 小程序场景）。H5 场景请使用 [@nutui/nutui-react-cli](../nutui-react-cli)。
+服务于 `@nutui/nutui-react-taro`（Taro 跨端 / 小程序场景）。H5 场景请使用 [@dongweb/nutui-react-cli](../nutui-react-cli)。
 
 ## 特点
 
@@ -16,14 +16,14 @@
 免安装（推荐）：
 
 ```bash
-npx -y @nutui/nutui-react-taro-cli list
-npx -y @nutui/nutui-react-taro-cli info Button
+npx -y @dongweb/nutui-react-taro-cli list
+npx -y @dongweb/nutui-react-taro-cli info Button
 ```
 
 或全局安装后用 `nutui-react-taro` 命令：
 
 ```bash
-npm i -g @nutui/nutui-react-taro-cli
+npm i -g @dongweb/nutui-react-taro-cli
 nutui-react-taro info Button --format json
 ```
 
@@ -79,7 +79,7 @@ CLI 是「Agent 主动敲命令」，MCP 则把同一份能力注册成 IDE 原�
   "mcpServers": {
     "nutui-react-taro": {
       "command": "npx",
-      "args": ["-y", "@nutui/nutui-react-taro-cli", "mcp"]
+      "args": ["-y", "@dongweb/nutui-react-taro-cli", "mcp"]
     }
   }
 }
@@ -90,7 +90,7 @@ CLI 是「Agent 主动敲命令」，MCP 则把同一份能力注册成 IDE 原�
 ```toml
 [mcp_servers.nutui-react-taro]
 command = "npx"
-args = ["-y", "@nutui/nutui-react-taro-cli", "mcp"]
+args = ["-y", "@dongweb/nutui-react-taro-cli", "mcp"]
 ```
 
 > `npx -y` 免全局安装即可拉起；也可全局安装后把 `command` 换成 `nutui-react-taro`、`args` 换成 `["mcp"]`。
@@ -102,8 +102,8 @@ CLI 内置一份 [Skill 文件](./skills/nutui-react-taro/SKILL.md)（遵循 Ant
 安装（skill 已随包 bundle，装好 CLI 后从本地路径装进当前项目）：
 
 ```bash
-npm i -D @nutui/nutui-react-taro-cli
-npx skills add ./node_modules/@nutui/nutui-react-taro-cli/skills/nutui-react-taro
+npm i -D @dongweb/nutui-react-taro-cli
+npx skills add ./node_modules/@dongweb/nutui-react-taro-cli/skills/nutui-react-taro
 ```
 
 兼容 Claude Code / Cursor / VS Code / Codex 等所有支持 [skills](https://github.com/vercel-labs/skills) 协议的 Agent。安装后，Agent 在遇到 NutUI React Taro 相关任务时会自动遵循「先查后写」的流程。

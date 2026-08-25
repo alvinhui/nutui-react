@@ -1,12 +1,12 @@
 # CLI
 
-This guide explains how to use `@nutui/nutui-react-taro-cli` to query NutUI-React (Taro multi-platform) component knowledge from the command line.
+This guide explains how to use `@dongweb/nutui-react-taro-cli` to query NutUI-React (Taro multi-platform) component knowledge from the command line.
 
 ## What is the NutUI-React Taro CLI?
 
-[@nutui/nutui-react-taro-cli](https://www.npmjs.com/package/@nutui/nutui-react-taro-cli) is an **offline knowledge-query CLI for NutUI-React Taro**, built for AI coding. It bundles component props, docs, Taro demos, and Design Tokens with the package, so AI coding assistants (Claude Code / Cursor / Copilot, etc.) can _look up_ APIs instead of _guessing_ them — eliminating API hallucinations at the source.
+[@dongweb/nutui-react-taro-cli](https://www.npmjs.com/package/@dongweb/nutui-react-taro-cli) is an **offline knowledge-query CLI for NutUI-React Taro**, built for AI coding. It bundles component props, docs, Taro demos, and Design Tokens with the package, so AI coding assistants (Claude Code / Cursor / Copilot, etc.) can _look up_ APIs instead of _guessing_ them — eliminating API hallucinations at the source.
 
-It serves `@nutui/nutui-react-taro` (Taro cross-platform / mini-program). For H5, use [@nutui/nutui-react-cli](/#/en-US/ai/cli) (the H5 site).
+It serves `@nutui/nutui-react-taro` (Taro cross-platform / mini-program). For H5, use [@dongweb/nutui-react-cli](/#/en-US/ai/cli) (the H5 site).
 
 ## Highlights
 
@@ -18,14 +18,14 @@ It serves `@nutui/nutui-react-taro` (Taro cross-platform / mini-program). For H5
 ## Install
 
 ```bash
-npm install -g @nutui/nutui-react-taro-cli
+npm install -g @dongweb/nutui-react-taro-cli
 ```
 
 Requires Node.js `>=18.12.0`. You can also skip the install and invoke it via `npx` (recommended, always uses the latest version):
 
 ```bash
-npx @nutui/nutui-react-taro-cli list
-npx @nutui/nutui-react-taro-cli info Button
+npx @dongweb/nutui-react-taro-cli list
+npx @dongweb/nutui-react-taro-cli info Button
 ```
 
 After a global install, use the `nutui-react-taro` command:
@@ -76,8 +76,8 @@ The CLI ships with a Skill file following the [Agent Skills](https://github.com/
 Install into the current project (the skill is bundled with the package; install it from the local path after installing the CLI):
 
 ```bash
-npm i -D @nutui/nutui-react-taro-cli
-npx skills add ./node_modules/@nutui/nutui-react-taro-cli/skills/nutui-react-taro
+npm i -D @dongweb/nutui-react-taro-cli
+npx skills add ./node_modules/@dongweb/nutui-react-taro-cli/skills/nutui-react-taro
 ```
 
 Once installed, the agent automatically follows the "look up first, then write" workflow when it encounters NutUI-React Taro tasks. Compatible with Claude Code / Cursor / VS Code / Codex and any agent that supports the skills protocol.

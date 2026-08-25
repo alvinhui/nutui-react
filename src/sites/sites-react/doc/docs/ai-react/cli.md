@@ -1,10 +1,10 @@
 # CLI
 
-本篇介绍如何使用 `@nutui/nutui-react-cli` 从命令行查询 NutUI-React 的组件知识。
+本篇介绍如何使用 `@dongweb/nutui-react-cli` 从命令行查询 NutUI-React 的组件知识。
 
 ## 什么是 NutUI-React CLI？
 
-[@nutui/nutui-react-cli](https://www.npmjs.com/package/@nutui/nutui-react-cli) 是面向 AI Coding 的 **NutUI-React 离线知识查询 CLI**。它把组件的 Props、文档、示例与 Design Token 打包随包分发，让 AI 编程助手（Claude Code / Cursor / Copilot 等）从「猜 API」变成「查 API」，从根源消除 API 幻觉。
+[@dongweb/nutui-react-cli](https://www.npmjs.com/package/@dongweb/nutui-react-cli) 是面向 AI Coding 的 **NutUI-React 离线知识查询 CLI**。它把组件的 Props、文档、示例与 Design Token 打包随包分发，让 AI 编程助手（Claude Code / Cursor / Copilot 等）从「猜 API」变成「查 API」，从根源消除 API 幻觉。
 
 ## 亮点
 
@@ -16,14 +16,14 @@
 ## 安装
 
 ```bash
-npm install -g @nutui/nutui-react-cli
+npm install -g @dongweb/nutui-react-cli
 ```
 
 需要 Node.js `>=18.12.0`。也可以免安装，用 `npx` 直接调用（推荐，始终使用最新版）：
 
 ```bash
-npx @nutui/nutui-react-cli list
-npx @nutui/nutui-react-cli info Button
+npx @dongweb/nutui-react-cli list
+npx @dongweb/nutui-react-cli info Button
 ```
 
 全局安装后使用 `nutui-react` 命令：
@@ -76,8 +76,8 @@ CLI 内置一份遵循 [Agent Skills](https://github.com/vercel-labs/skills) 规
 安装到当前项目（skill 已随包 bundle，装好 CLI 后从本地路径安装）：
 
 ```bash
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react
 ```
 
 安装后，Agent 在遇到 NutUI-React 相关任务时会自动遵循「先查后写」的流程。兼容 Claude Code / Cursor / VS Code / Codex 等所有支持 skills 协议的 Agent。

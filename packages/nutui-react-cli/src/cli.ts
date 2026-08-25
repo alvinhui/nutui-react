@@ -1,4 +1,4 @@
-// @nutui/nutui-react-cli（H5）薄入口：构造 H5 CliConfig，委托 core 的 runCli。
+// @dongweb/nutui-react-cli（H5）薄入口：构造 H5 CliConfig，委托 core 的 runCli。
 import { hideBin } from 'yargs/helpers'
 import { fileURLToPath } from 'node:url'
 import { runCli, type CliConfig } from '@nutui/nutui-react-cli-core'
@@ -11,7 +11,7 @@ const dataDir = fileURLToPath(new URL('../data/', import.meta.url))
 
 const config: CliConfig = {
   binName: 'nutui-react',
-  cliPkgName: '@nutui/nutui-react-cli',
+  cliPkgName: '@dongweb/nutui-react-cli',
   platform: 'h5',
   libLabel: 'NutUI React（H5）',
   demoLabel: 'H5',

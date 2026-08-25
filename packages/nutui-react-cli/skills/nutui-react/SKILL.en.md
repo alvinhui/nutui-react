@@ -8,26 +8,26 @@ description: >
   lightweight mobile (H5) component library.
 allowed-tools:
   - Bash(nutui-react *)
-  - Bash(npx -y @nutui/nutui-react-cli *)
+  - Bash(npx -y @dongweb/nutui-react-cli *)
   - Bash(which nutui-react)
 ---
 
 # NutUI React CLI
 
-You have access to `@nutui/nutui-react-cli` — a local CLI tool with bundled NutUI React metadata (component props, full docs, runnable demos, and Design Tokens). Use it to query component knowledge before writing code. All data is offline and packaged with the CLI — no network and no API key needed.
+You have access to `@dongweb/nutui-react-cli` — a local CLI tool with bundled NutUI React metadata (component props, full docs, runnable demos, and Design Tokens). Use it to query component knowledge before writing code. All data is offline and packaged with the CLI — no network and no API key needed.
 
 ## Setup
 
 Before first use, check if the CLI is available. If not, invoke it via `npx` (no global install required):
 
 ```bash
-which nutui-react || echo "use: npx -y @nutui/nutui-react-cli <command>"
+which nutui-react || echo "use: npx -y @dongweb/nutui-react-cli <command>"
 ```
 
 Both forms work — use whichever is available:
 
 - Installed globally: `nutui-react info Button`
-- Via npx (no install): `npx -y @nutui/nutui-react-cli info Button`
+- Via npx (no install): `npx -y @dongweb/nutui-react-cli info Button`
 
 Examples below use the `nutui-react` form for brevity.
 
@@ -99,7 +99,7 @@ If working in an IDE that supports MCP (Claude Code, Cursor, VS Code, Codex, etc
   "mcpServers": {
     "nutui-react": {
       "command": "npx",
-      "args": ["-y", "@nutui/nutui-react-cli", "mcp"]
+      "args": ["-y", "@dongweb/nutui-react-cli", "mcp"]
     }
   }
 }

@@ -10,18 +10,18 @@ Paste the following into your agent conversation or automation flow, so it build
 Before writing any NutUI-React (@nutui/nutui-react) code, first read https://nutui.jd.com/h5/react/4x/llms-full.txt to understand the components' real APIs, usage, and style structure. Do not guess props or enum values from memory. Always look up the docs before using a component, then write code.
 
 If your environment supports skills, run:
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react
 ```
 
 ## What the agent gets
 
 ### CLI — offline knowledge query
 
-[@nutui/nutui-react-cli](https://www.npmjs.com/package/@nutui/nutui-react-cli) bundles component props, docs, demos, and Design Tokens with the package, so queries run locally in milliseconds — no network, no API key.
+[@dongweb/nutui-react-cli](https://www.npmjs.com/package/@dongweb/nutui-react-cli) bundles component props, docs, demos, and Design Tokens with the package, so queries run locally in milliseconds — no network, no API key.
 
 ```bash
-npx @nutui/nutui-react-cli info Button
+npx @dongweb/nutui-react-cli info Button
 ```
 
 Full reference: [CLI](/#/en-US/ai/cli)
@@ -35,7 +35,7 @@ The CLI can also run as a local MCP server, registering the same knowledge as ID
   "mcpServers": {
     "nutui-react": {
       "command": "npx",
-      "args": ["-y", "@nutui/nutui-react-cli", "mcp"]
+      "args": ["-y", "@dongweb/nutui-react-cli", "mcp"]
     }
   }
 }
@@ -48,8 +48,8 @@ Full reference: [MCP Server](/#/en-US/ai/mcp)
 The CLI ships with a Skill file following the Agent Skills spec. The CLI/MCP provide the _capabilities_; the Skill constrains _when and in what order_ the agent uses them — e.g. "look up props and grab a demo before writing a component" and "customize styles with `var(--nutui-*)` tokens instead of hardcoded colors".
 
 ```bash
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react
 ```
 
 ### LLMs.txt — structured documentation

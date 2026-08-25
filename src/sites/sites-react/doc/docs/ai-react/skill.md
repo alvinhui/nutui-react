@@ -29,8 +29,8 @@
 **安装：**
 
 ```bash
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react
 ```
 
 ## `nutui-react-to-taro` — H5 迁移到 Taro
@@ -44,13 +44,13 @@ npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react
 - **交叉核对**：对每个组件同时调用 `nutui-react info` 与 `nutui-react-taro info` 对比两端 Props 差异（少数组件如 Uploader / Image 两端属性不同），避免盲目照搬导致小程序端失效。
 - **语义改写与陷阱处理**：把 Web-only API（`document` / `window`）改写成 `@tarojs/taro` API；识别 `Audio` 组件在 Taro 端缺失、canvas 类组件需重写等需要人工判断的场景并标记出来。
 
-> 该 Skill 会同时用到 `@nutui/nutui-react-taro-cli` 做目标端核对，通过 `npx -y @nutui/nutui-react-taro-cli` 免安装调用即可。
+> 该 Skill 会同时用到 `@dongweb/nutui-react-taro-cli` 做目标端核对，通过 `npx -y @dongweb/nutui-react-taro-cli` 免安装调用即可。
 
 **安装：**
 
 ```bash
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react-to-taro
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react-to-taro
 ```
 
 ## Skill 与 CLI / MCP 的关系

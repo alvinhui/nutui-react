@@ -29,8 +29,8 @@ Guides the agent to query the real API with the CLI before writing any NutUI-Rea
 **Install:**
 
 ```bash
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react
 ```
 
 ## `nutui-react-to-taro` — migrate H5 to Taro
@@ -44,13 +44,13 @@ Guides the agent to migrate a project using `@nutui/nutui-react` (H5) to `@nutui
 - **Cross-check**: for each component, call both `nutui-react info` and `nutui-react-taro info` to diff props across the two ends (a few components like Uploader / Image differ), avoiding blind copies that silently break on the mini-program.
 - **Semantic rewrites & traps**: rewrite Web-only APIs (`document` / `window`) to `@tarojs/taro` APIs; flag judgment-heavy cases such as the missing `Audio` component on Taro and canvas components that need rewriting.
 
-> This Skill also uses `@nutui/nutui-react-taro-cli` for target-side cross-checking; invoke it install-free via `npx -y @nutui/nutui-react-taro-cli`.
+> This Skill also uses `@dongweb/nutui-react-taro-cli` for target-side cross-checking; invoke it install-free via `npx -y @dongweb/nutui-react-taro-cli`.
 
 **Install:**
 
 ```bash
-npm i -D @nutui/nutui-react-cli
-npx skills add ./node_modules/@nutui/nutui-react-cli/skills/nutui-react-to-taro
+npm i -D @dongweb/nutui-react-cli
+npx skills add ./node_modules/@dongweb/nutui-react-cli/skills/nutui-react-to-taro
 ```
 
 ## How Skill relates to CLI / MCP
