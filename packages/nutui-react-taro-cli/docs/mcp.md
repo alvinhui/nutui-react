@@ -34,7 +34,7 @@
   "mcpServers": {
     "nutui-react-taro": {
       "command": "npx",
-      "args": ["-y", "@nutui/nutui-react-taro-cli", "mcp"]
+      "args": ["-y", "@dongweb/nutui-react-taro-cli", "mcp"]
     }
   }
 }
@@ -45,7 +45,7 @@
 ```toml
 [mcp_servers.nutui-react-taro]
 command = "npx"
-args = ["-y", "@nutui/nutui-react-taro-cli", "mcp"]
+args = ["-y", "@dongweb/nutui-react-taro-cli", "mcp"]
 ```
 
 `npx -y` 免全局安装即可拉起；也可全局安装 CLI 后把 `command` 换成 `nutui-react-taro`、`args` 换成 `["mcp"]`。
