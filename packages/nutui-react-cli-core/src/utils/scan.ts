@@ -10,6 +10,9 @@ export interface ScanResult {
   files: string[]
   // 实际遍历的源码文件总数（用于"扫描了 N 个文件"提示）
   scannedFileCount: number
+  // 达到扫描上限（目录深度 / 文件数 / 读取字节数）而提前停止，结果可能不完整。
+  // CLI/MCP 应据此提示用户结果不完整，而非静默漏报。
+  truncated?: boolean
 }
 
 const SOURCE_EXT = new Set(['.tsx', '.ts', '.jsx', '.js', '.mjs', '.cjs'])
@@ -22,6 +25,13 @@ const SKIP_DIRS = new Set([
   '.turbo',
   'coverage',
 ])
+
+// 资源上限：防止 applyDir 指向异常大/深的目录（或恶意构造的目录树）时
+// 同步递归扫描长时间阻塞 CLI/MCP 进程、耗尽 CPU 与 I/O。超过任一上限即停止遍历。
+const MAX_DEPTH = 60
+const MAX_FILES_SCANNED = 20000
+const MAX_TOTAL_READ_BYTES = 200 * 1024 * 1024 // 200MB
+const MAX_SINGLE_FILE_BYTES = 5 * 1024 * 1024 // 5MB：NutUI import 均在文件头部，超大文件跳过读取
 
 // 匹配 import { ... } from '@nutui/nutui-react' | '@nutui/nutui-react-taro'
 // 也匹配 icons 包（@nutui/icons-react(-taro)），图标名也算"用到的组件"以便迁移提示覆盖图标变更。
@@ -55,7 +65,21 @@ export function extractComponents(content: string): string[] {
   return [...found]
 }
 
-function walk(dir: string, onFile: (file: string) => void): void {
+// stop() 由调用方在任一上限被触发时置位；walk 每层递归前检查，尽快终止遍历。
+// markTruncated：深度超限时单独回调标记，因为这一情况不经过 shouldStop()（shouldStop 只感知
+// 文件数/字节数），若不回调会导致深层目录被静默漏扫却不反映在 ScanResult.truncated 上。
+function walk(
+  dir: string,
+  depth: number,
+  onFile: (file: string) => void,
+  shouldStop: () => boolean,
+  markTruncated: () => void
+): void {
+  if (shouldStop()) return
+  if (depth > MAX_DEPTH) {
+    markTruncated()
+    return
+  }
   let entries: fs.Dirent[]
   try {
     entries = fs.readdirSync(dir, { withFileTypes: true })
@@ -63,6 +87,7 @@ function walk(dir: string, onFile: (file: string) => void): void {
     return
   }
   for (const entry of entries) {
+    if (shouldStop()) return
     if (entry.name.startsWith('.') && entry.name !== '.') {
       // 跳过隐藏目录/文件（.git 等），但允许显式传入的 '.' 起点
       if (entry.isDirectory() && SKIP_DIRS.has(entry.name)) continue
@@ -71,7 +96,7 @@ function walk(dir: string, onFile: (file: string) => void): void {
     const full = path.join(dir, entry.name)
     if (entry.isDirectory()) {
       if (SKIP_DIRS.has(entry.name)) continue
-      walk(full, onFile)
+      walk(full, depth + 1, onFile, shouldStop, markTruncated)
     } else if (entry.isFile() && SOURCE_EXT.has(path.extname(entry.name))) {
       onFile(full)
     }
@@ -79,15 +104,37 @@ function walk(dir: string, onFile: (file: string) => void): void {
 }
 
 // 扫描目录，聚合项目用到的 NutUI 组件。dir 可为文件或目录。
+// 出于防 DoS 考虑设有目录深度 / 文件数 / 读取字节数上限，超限即停止并标记 truncated。
 export function scanProject(dir: string): ScanResult {
   const components = new Set<string>()
   const files: string[] = []
   let scannedFileCount = 0
+  let totalReadBytes = 0
+  let truncated = false
+
+  const shouldStop = () => {
+    if (
+      scannedFileCount >= MAX_FILES_SCANNED ||
+      totalReadBytes >= MAX_TOTAL_READ_BYTES
+    ) {
+      truncated = true
+      return true
+    }
+    return false
+  }
 
   const handle = (file: string) => {
+    if (shouldStop()) return
     scannedFileCount++
     let content: string
     try {
+      const size = fs.statSync(file).size
+      if (size > MAX_SINGLE_FILE_BYTES) {
+        // 单文件过大：NutUI import 语句均位于文件头部，跳过读取而非阻塞在超大文件上。
+        truncated = true
+        return
+      }
+      totalReadBytes += size
       content = fs.readFileSync(file, 'utf-8')
     } catch {
       return
@@ -99,16 +146,21 @@ export function scanProject(dir: string): ScanResult {
     }
   }
 
+  const markTruncated = () => {
+    truncated = true
+  }
+
   const stat = fs.existsSync(dir) ? fs.statSync(dir) : null
   if (stat?.isFile()) {
     handle(dir)
   } else {
-    walk(dir, handle)
+    walk(dir, 0, handle, shouldStop, markTruncated)
   }
 
   return {
     components: [...components].sort(),
     files: files.sort(),
     scannedFileCount,
+    ...(truncated ? { truncated: true } : {}),
   }
 }

@@ -86,9 +86,9 @@ nutui-react --nv 3 list                 # 查 v3 最新快照
 nutui-react --nv 4.0.0-beta.7 doc Cell
 ```
 
-未指定 `--nutui-version` 时，按以下顺序**自动检测**目标版本：
+目标版本按以下顺序解析（某一来源缺失时，落到下一步）：
 
-1. `--nutui-version <v>` 显式指定；
+1. `--nutui-version <v>` 显式指定（若传入）；
 2. 项目 `node_modules/@nutui/nutui-react/package.json` 的实际安装版本；
 3. 项目 `package.json` 的 `dependencies` / `devDependencies` / `peerDependencies` 声明（兼容 `^3.1.0`、`~3.1.0` 等）；
 4. 兜底到默认大版本（`v4`）的 latest。
@@ -112,7 +112,7 @@ nutui-react migrate 3 4 --component Empty --format json
 nutui-react diff 3 4 Empty --format json
 ```
 
-`--apply` 只扫描源码并输出项目实际使用组件的迁移步骤与 Agent 提示，**不会自动修改文件**。输出中的 `matchedComponents` 是需要重点处理的组件，`componentsWithoutBreakingChanges` 是已使用但当前迁移文档未记录破坏性变更的组件。
+`--apply` 只扫描源码并输出项目实际使用组件的迁移步骤，**不会自动修改文件**。`text` 输出会额外附带一段「给代码 Agent 的指令」；`json` 输出不含这段提示文字，而是提供 `matchedComponents`（需要重点处理的组件）、`componentsWithoutBreakingChanges`（已使用但当前迁移文档未记录破坏性变更的组件），以及 `steps`（各组件迁移说明原文，Agent 提示即由此归纳而来）。
 
 完整升级流程可安装 [nutui-react-v3-to-v4 Skill](/#/zh-CN/ai/skill)，由 Agent 按「升级依赖 → 扫描盘点 → 逐组件改写 → 构建与视觉验证」执行。
 

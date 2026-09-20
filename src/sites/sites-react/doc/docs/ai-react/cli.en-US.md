@@ -86,9 +86,9 @@ nutui-react --nv 3 list                 # latest v3 snapshot
 nutui-react --nv 4.0.0-beta.7 doc Cell
 ```
 
-When `--nutui-version` is omitted, the target version is **auto-detected** in this order:
+The target version is resolved in this order (falling through to the next step whenever a source is absent):
 
-1. the `--nutui-version <v>` flag;
+1. the `--nutui-version <v>` flag, if passed;
 2. the installed version in the project's `node_modules/@nutui/nutui-react/package.json`;
 3. the `dependencies` / `devDependencies` / `peerDependencies` declaration in the project's `package.json` (handles `^3.1.0`, `~3.1.0`, etc.);
 4. a fallback to the default major version (`v4`) latest.
@@ -112,7 +112,7 @@ nutui-react migrate 3 4 --component Empty --format json
 nutui-react diff 3 4 Empty --format json
 ```
 
-`--apply` only scans source files and outputs migration steps plus an agent prompt for the components actually used; it **does not modify files**. `matchedComponents` identifies components to update, while `componentsWithoutBreakingChanges` lists used components with no breaking change recorded in the current migration guide.
+`--apply` only scans source files and outputs migration steps for the components actually used; it **does not modify files**. In `text` output this includes an extra agent-instruction block ("给代码 Agent 的指令"); `json` output does not include that prose block — instead, `matchedComponents` identifies components to update and `componentsWithoutBreakingChanges` lists used components with no breaking change recorded in the current migration guide, alongside `steps` (the raw per-component migration guide text) that an agent prompt would summarize.
 
 Install the [nutui-react-v3-to-v4 Skill](/#/en-US/ai/skill) for an agent-guided workflow covering dependency upgrades, inventory, component-by-component edits, build checks, and visual verification.
 
