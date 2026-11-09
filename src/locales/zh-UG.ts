@@ -26,6 +26,7 @@ const zhUG: BaseLang = {
   },
   infiniteloading: {
     pullRefreshText: 'قويۇپ بېرىڭ',
+    pullUpText: 'تېخىمۇ كۆپ يۈكلەش ئۈچۈن ئۈستىگە سىيرىڭ',
     loadText: 'سەل ساقلاڭ',
     loadMoreText: 'ۋاي تۈگىدى',
   },
@@ -165,6 +166,9 @@ const zhUG: BaseLang = {
   mask: 'قاپلىما قەۋەت',
   quickenter: {
     title: 'تېز كىرگۈزۈش',
+  },
+  dialog: {
+    autoCloseText: '{second} سېكۇنتتا ئۆز-ئۆزىدىن ئىچكى كۆرۈنۈش تاقالىدۇ',
   },
 }
 export default zhUG

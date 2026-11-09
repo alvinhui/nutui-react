@@ -3,7 +3,7 @@
 .nut-quickenter {
   width: 100%;
   /* 限制弹层最大高度，包含安全区 */
-  max-height: calc($quickenter-max-height + env(safe-area-inset-top, 0px));
+  max-height: calc($quickenter-max-height + env(safe-area-inset-top, 0));
   background: $quickenter-bg-color;
   border-radius: 0 0 12px 12px;
   overflow: hidden;

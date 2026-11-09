@@ -26,6 +26,7 @@ const enUS: BaseLang = {
   },
   infiniteloading: {
     pullRefreshText: 'Pull Refresh',
+    pullUpText: 'Swipe up to load more',
     loadText: 'Loading',
     loadMoreText: "Oops, here's the bottom",
   },
@@ -166,6 +167,9 @@ const enUS: BaseLang = {
   mask: 'Mask',
   quickenter: {
     title: 'Quick Enter',
+  },
+  dialog: {
+    autoCloseText: 'Auto close in {second}s',
   },
 }
 export default enUS

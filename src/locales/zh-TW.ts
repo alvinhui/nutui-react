@@ -26,6 +26,7 @@ const zhCN: BaseLang = {
   },
   infiniteloading: {
     pullRefreshText: '松開刷新',
+    pullUpText: '上滑加載更多',
     loadText: '加載中',
     loadMoreText: '沒有更多了',
   },
@@ -169,6 +170,9 @@ const zhCN: BaseLang = {
   mask: '蒙層',
   quickenter: {
     title: '快捷入口',
+  },
+  dialog: {
+    autoCloseText: '{second}秒後自動關閉',
   },
 }
 export default zhCN

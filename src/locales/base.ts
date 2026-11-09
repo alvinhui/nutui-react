@@ -24,6 +24,7 @@ export interface BaseLang {
   }
   infiniteloading: {
     pullRefreshText: string
+    pullUpText: string
     loadText: string
     loadMoreText: string
   }
@@ -151,5 +152,8 @@ export interface BaseLang {
   mask: string
   quickenter: {
     title: string
+  }
+  dialog: {
+    autoCloseText: string
   }
 }

@@ -26,6 +26,7 @@ const trTR: BaseLang = {
   },
   infiniteloading: {
     pullRefreshText: 'yenile',
+    pullUpText: 'Daha fazlasını yüklemek için yukarı kaydırın',
     loadText: 'yükleniyor...',
     loadMoreText: 'Oops, işte şimdi ayfanın sonuna geldiniz',
   },
@@ -175,6 +176,9 @@ const trTR: BaseLang = {
   mask: 'Maske',
   quickenter: {
     title: 'Hızlı Giriş',
+  },
+  dialog: {
+    autoCloseText: '{second} saniye içinde otomatik kapanır',
   },
 }
 export default trTR

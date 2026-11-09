@@ -26,6 +26,7 @@ const viVN: BaseLang = {
   },
   infiniteloading: {
     pullRefreshText: 'Thả để làm mới',
+    pullUpText: 'Vuốt lên để tải thêm',
     loadText: 'Đang tải……',
     loadMoreText: 'Ôi, đã đến cuối rồi!',
   },
@@ -167,6 +168,9 @@ const viVN: BaseLang = {
   mask: 'Lớp phủ',
   quickenter: {
     title: 'Truy cập nhanh',
+  },
+  dialog: {
+    autoCloseText: '{second}s sau tự động đóng',
   },
 }
 export default viVN

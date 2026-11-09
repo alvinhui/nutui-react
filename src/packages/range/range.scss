@@ -201,13 +201,13 @@
 .nut-range-vertical-container {
   height: 100%;
   flex-direction: column;
-  padding: 0px 15px;
+  padding: 0 15px;
 }
 
 .nut-range-vertical {
   width: $range-height;
   // 纵向左右范围文字距进度条 8px（横向为 16px，见 $range-margin）
-  margin: 8px 0px;
+  margin: 8px 0;
 
   &-button {
     &-wrapper,
@@ -223,7 +223,7 @@
     }
 
     &-wrapper-left {
-      top: 0px;
+      top: 0;
       left: 50%;
       /* #ifndef dynamic*/
       right: initial;
@@ -258,11 +258,11 @@
     position: absolute;
     width: 36px;
     height: 100%;
-    top: 0px;
+    top: 0;
     right: 50%;
     overflow: visible;
     font-size: $font-size-base;
-    padding: 0px;
+    padding: 0;
   }
 
   &-mark-hm {
